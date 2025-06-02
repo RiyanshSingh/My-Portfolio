@@ -11,10 +11,11 @@
   <body>
     <nav id="desktop-nav">
       <div class="logo">My Portfolio</div>
-      <div>
+      <div class="nav-content">
         <ul class="nav-links">
           <li><a href="#about">About</a></li>
           <li><a href="#experience">Experience</a></li>
+          <li><a href="#skills">Skills</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -31,6 +32,7 @@
         <div class="menu-links">
           <li><a href="#about" onclick="toggleMenu()">About</a></li>
           <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
+          <li><a href="#skills" onclick="toggleMenu()">Skills</a></li>
           <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
           <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
         </div>
@@ -253,6 +255,206 @@
         src="./assets/arrow.png"
         alt="Arrow icon"
         class="icon arrow"
+        onclick="location.href='./#skills'"
+      />
+    </section>
+    <section id="skills">
+      <p class="section__text__p1">What I'm Capable Of</p>
+      <h1 class="title">My Skills</h1>
+      <div class="skills-container">
+        <div class="skills-category">
+          <h2 class="experience-sub-title">Technical Skills</h2>
+          <div class="skills-grid">
+            <div class="skill-card">
+              <div class="skill-info">
+                <h3>Frontend Development</h3>
+                <div class="skill-level">
+                  <div class="skill-progress" style="width: 85%"></div>
+                </div>
+              </div>
+              <div class="skill-tags">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>React</span>
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-info">
+                <h3>Backend Development</h3>
+                <div class="skill-level">
+                  <div class="skill-progress" style="width: 75%"></div>
+                </div>
+              </div>
+              <div class="skill-tags">
+                <span>Node.js</span>
+                <span>Express</span>
+                <span>MongoDB</span>
+                <span>Python</span>
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-info">
+                <h3>Data Science</h3>
+                <div class="skill-level">
+                  <div class="skill-progress" style="width: 70%"></div>
+                </div>
+              </div>
+              <div class="skill-tags">
+                <span>Python</span>
+                <span>Pandas</span>
+                <span>NumPy</span>
+                <span>Scikit-learn</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="skills-category">
+          <h2 class="experience-sub-title">Soft Skills</h2>
+          <div class="skills-grid">
+            <div class="skill-card">
+              <div class="skill-info">
+                <h3>Communication</h3>
+                <div class="skill-level">
+                  <div class="skill-progress" style="width: 90%"></div>
+                </div>
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-info">
+                <h3>Problem Solving</h3>
+                <div class="skill-level">
+                  <div class="skill-progress" style="width: 85%"></div>
+                </div>
+              </div>
+            </div>
+            <div class="skill-card">
+              <div class="skill-info">
+                <h3>Team Collaboration</h3>
+                <div class="skill-level">
+                  <div class="skill-progress" style="width: 88%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#achievements'"
+      />
+    </section>
+    <section id="achievements">
+      <p class="section__text__p1">My Recognition</p>
+      <h1 class="title">Achievements & Awards</h1>
+      <div class="achievements-container">
+        <div class="achievement-card">
+          <div class="achievement-icon">
+            <img src="./assets/certificate.png" alt="Certificate icon" class="icon" />
+          </div>
+          <div class="achievement-content">
+            <h3>Google Cloud Certification</h3>
+            <p>Professional Cloud Developer</p>
+            <span class="achievement-date">2024</span>
+          </div>
+        </div>
+        
+        <div class="achievement-card">
+          <div class="achievement-icon">
+            <img src="./assets/trophy.png" alt="Trophy icon" class="icon" />
+          </div>
+          <div class="achievement-content">
+            <h3>Hackathon Winner</h3>
+            <p>First Place in University Tech Fest</p>
+            <span class="achievement-date">2023</span>
+          </div>
+        </div>
+        
+        <div class="achievement-card">
+          <div class="achievement-icon">
+            <img src="./assets/medal.png" alt="Medal icon" class="icon" />
+          </div>
+          <div class="achievement-content">
+            <h3>Academic Excellence</h3>
+            <p>Dean's List for Outstanding Performance</p>
+            <span class="achievement-date">2023</span>
+          </div>
+        </div>
+        
+        <div class="achievement-card">
+          <div class="achievement-icon">
+            <img src="./assets/badge.png" alt="Badge icon" class="icon" />
+          </div>
+          <div class="achievement-content">
+            <h3>Open Source Contributor</h3>
+            <p>Top Contributor in Hacktoberfest</p>
+            <span class="achievement-date">2023</span>
+          </div>
+        </div>
+      </div>
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#moments'"
+      />
+    </section>
+    <section id="moments">
+      <p class="section__text__p1">Captured Memories</p>
+      <h1 class="title">My Moments</h1>
+      <div class="moments-container">
+        <div class="moments-grid">
+          <div class="moment-card">
+            <img src="./assets/moment1.jpg" alt="Moment 1" class="moment-img" />
+            <div class="moment-overlay">
+              <h3>Build with AI 2025</h3>
+              <p>Networking with industry experts</p>
+            </div>
+          </div>
+          <div class="moment-card">
+            <img src="./assets/moment2.jpg" alt="Moment 2" class="moment-img" />
+            <div class="moment-overlay">
+              <h3>Hackathon Victory</h3>
+              <p>Winning team celebration</p>
+            </div>
+          </div>
+          <div class="moment-card">
+            <img src="./assets/moment3.jpg" alt="Moment 3" class="moment-img" />
+            <div class="moment-overlay">
+              <h3>Project Launch</h3>
+              <p>Launching my first major project</p>
+            </div>
+          </div>
+          <div class="moment-card">
+            <img src="./assets/moment4.jpg" alt="Moment 4" class="moment-img" />
+            <div class="moment-overlay">
+              <h3>Team Collaboration</h3>
+              <p>Working with amazing developers</p>
+            </div>
+          </div>
+          <div class="moment-card">
+            <img src="./assets/moment5.jpg" alt="Moment 5" class="moment-img" />
+            <div class="moment-overlay">
+              <h3>Learning Journey</h3>
+              <p>Exploring new technologies</p>
+            </div>
+          </div>
+          <div class="moment-card">
+            <img src="./assets/moment6.jpg" alt="Moment 6" class="moment-img" />
+            <div class="moment-overlay">
+              <h3>Community Meetup</h3>
+              <p>Sharing knowledge with peers</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
         onclick="location.href='./#projects'"
       />
     </section>
@@ -342,6 +544,91 @@
         onclick="location.href='./#contact'"
       />
     </section>
+    <section id="feedback">
+      <p class="section__text__p1">Share Your Thoughts</p>
+      <h1 class="title">Feedback & Contact</h1>
+      <div class="feedback-container">
+        <div class="feedback-content">
+          <div class="feedback-text">
+            <h2>Let's Connect!</h2>
+            <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Feel free to reach out through the form below or connect with me on social media.</p>
+            <div class="feedback-features">
+              <div class="feature">
+                <img src="./assets/checkmark.png" alt="Quick Response" class="icon" />
+                <h3>Quick Response</h3>
+                <p>I typically respond within 24 hours</p>
+              </div>
+              <div class="feature">
+                <img src="./assets/checkmark.png" alt="Secure" class="icon" />
+                <h3>Secure & Private</h3>
+                <p>Your information is always protected</p>
+              </div>
+              <div class="feature">
+                <img src="./assets/checkmark.png" alt="Available" class="icon" />
+                <h3>Always Available</h3>
+                <p>Open to new opportunities and collaborations</p>
+              </div>
+            </div>
+          </div>
+          <div class="form-container">
+            <div class="form-tabs">
+              <button class="tab-btn active" data-tab="contact">Contact</button>
+              <button class="tab-btn" data-tab="feedback">Feedback</button>
+            </div>
+            <form id="contactForm" class="form active">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+              </div>
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" required>
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-color-1">Send Message</button>
+            </form>
+            <form id="feedbackForm" class="form">
+              <div class="form-group">
+                <label for="feedbackName">Name</label>
+                <input type="text" id="feedbackName" name="name" required>
+              </div>
+              <div class="form-group">
+                <label for="feedbackEmail">Email</label>
+                <input type="email" id="feedbackEmail" name="email" required>
+              </div>
+              <div class="form-group">
+                <label for="feedbackType">Feedback Type</label>
+                <select id="feedbackType" name="feedbackType" required>
+                  <option value="">Select feedback type</option>
+                  <option value="suggestion">Suggestion</option>
+                  <option value="bug">Bug Report</option>
+                  <option value="improvement">Improvement</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="feedbackMessage">Your Feedback</label>
+                <textarea id="feedbackMessage" name="message" rows="5" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-color-1">Submit Feedback</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <img
+        src="./assets/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#contact'"
+      />
+    </section>
     <section id="contact">
       <p class="section__text__p1">Get in Touch</p>
       <h1 class="title">Contact Me</h1>
@@ -364,18 +651,70 @@
         </div>
       </div>
     </section>
+    <div class="chat-widget">
+      <button class="chat-toggle" onclick="toggleChat()">
+        <div class="robot-icon">
+          <div class="robot-head">
+            <div class="robot-eye left"></div>
+            <div class="robot-eye right"></div>
+            <div class="robot-mouth"></div>
+          </div>
+        </div>
+      </button>
+      <div class="chat-container">
+        <div class="chat-header">
+          <h3>Ask Me Anything</h3>
+          <button class="close-chat" onclick="toggleChat()">×</button>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+          <div class="message bot">
+            <p>Hi! I'm your AI assistant. Ask me anything about Riyansh's experience, skills, or projects!</p>
+          </div>
+        </div>
+        <div class="chat-input">
+          <input type="text" id="userInput" placeholder="Type your question..." onkeypress="handleKeyPress(event)" />
+          <button onclick="sendMessage()">Send</button>
+        </div>
+      </div>
+    </div>
     <footer>
-      <nav>
-        <div class="nav-links-container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Quick Links</h3>
           <ul class="nav-links">
             <li><a href="#about">About</a></li>
             <li><a href="#experience">Experience</a></li>
+            <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
-      </nav>
-      <p>Copyright &#169; 2025 Riyansh Singh. All Rights Reserved.</p>
+        <div class="footer-section">
+          <h3>Contact Info</h3>
+          <div class="footer-contact">
+            <a href="mailto:itsyourriyansh@gmail.com" class="contact-link">
+              <img src="./assets/email.png" alt="Email" class="icon" />
+              <span>itsyourriyansh@gmail.com</span>
+            </a>
+            <a href="https://www.linkedin.com/in/riyansh-singh-swe/" class="contact-link">
+              <img src="./assets/linkedin.png" alt="LinkedIn" class="icon" />
+              <span>LinkedIn</span>
+            </a>
+            <a href="https://github.com/RiyanshSingh" class="contact-link">
+              <img src="./assets/github.png" alt="GitHub" class="icon" />
+              <span>GitHub</span>
+            </a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Location</h3>
+          <p>Based in India</p>
+          <p>Available for remote work</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Copyright &#169; 2025 Riyansh Singh. All Rights Reserved.</p>
+      </div>
     </footer>
     <script src="script.js"></script>
   </body>
