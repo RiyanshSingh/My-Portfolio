@@ -160,6 +160,11 @@ function getBotResponse(message) {
     return "I've earned several achievements including Google Cloud Certification (Professional Cloud Developer), Hackathon Winner at University Tech Fest, Academic Excellence (Dean's List), and recognition as a Top Contributor in Hacktoberfest.";
   }
   
+  // Special response for Ekta
+  if (lowerMessage.includes('ekta') || lowerMessage.includes('girlfriend') || lowerMessage.includes('girl friend') || lowerMessage.includes('special someone') || lowerMessage.includes('love') || lowerMessage.includes('relationship')) {
+    return "Ekta is my wonderful girlfriend! She's an amazing person who brings so much joy and positivity to my life. We share beautiful moments together and support each other in our journey. She's not just my partner but also my best friend and my biggest supporter. I'm truly grateful to have her in my life! 💖";
+  }
+  
   // Default response
   return "I'm not sure about that. You can ask me about Riyansh's experience, skills, education, projects, or contact information.";
 }
