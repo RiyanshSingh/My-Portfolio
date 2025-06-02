@@ -537,117 +537,48 @@
           </div>
         </div>
       </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#contact'"
-      />
-    </section>
-    <section id="feedback">
-      <p class="section__text__p1">Share Your Thoughts</p>
-      <h1 class="title">Feedback & Contact</h1>
-      <div class="feedback-container">
-        <div class="feedback-content">
-          <div class="feedback-text">
-            <h2>Let's Connect!</h2>
-            <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. Feel free to reach out through the form below or connect with me on social media.</p>
-            <div class="feedback-features">
-              <div class="feature">
-                <img src="./assets/checkmark.png" alt="Quick Response" class="icon" />
-                <h3>Quick Response</h3>
-                <p>I typically respond within 24 hours</p>
-              </div>
-              <div class="feature">
-                <img src="./assets/checkmark.png" alt="Secure" class="icon" />
-                <h3>Secure & Private</h3>
-                <p>Your information is always protected</p>
-              </div>
-              <div class="feature">
-                <img src="./assets/checkmark.png" alt="Available" class="icon" />
-                <h3>Always Available</h3>
-                <p>Open to new opportunities and collaborations</p>
-              </div>
-            </div>
-          </div>
-          <div class="form-container">
-            <div class="form-tabs">
-              <button class="tab-btn active" data-tab="contact">Contact</button>
-              <button class="tab-btn" data-tab="feedback">Feedback</button>
-            </div>
-            <form id="contactForm" class="form active">
-              <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
-              </div>
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-              </div>
-              <div class="form-group">
-                <label for="subject">Subject</label>
-                <input type="text" id="subject" name="subject" required>
-              </div>
-              <div class="form-group">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-              </div>
-              <button type="submit" class="btn btn-color-1">Send Message</button>
-            </form>
-            <form id="feedbackForm" class="form">
-              <div class="form-group">
-                <label for="feedbackName">Name</label>
-                <input type="text" id="feedbackName" name="name" required>
-              </div>
-              <div class="form-group">
-                <label for="feedbackEmail">Email</label>
-                <input type="email" id="feedbackEmail" name="email" required>
-              </div>
-              <div class="form-group">
-                <label for="feedbackType">Feedback Type</label>
-                <select id="feedbackType" name="feedbackType" required>
-                  <option value="">Select feedback type</option>
-                  <option value="suggestion">Suggestion</option>
-                  <option value="bug">Bug Report</option>
-                  <option value="improvement">Improvement</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="feedbackMessage">Your Feedback</label>
-                <textarea id="feedbackMessage" name="message" rows="5" required></textarea>
-              </div>
-              <button type="submit" class="btn btn-color-1">Submit Feedback</button>
-            </form>
-          </div>
-        </div>
-      </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#contact'"
-      />
     </section>
     <section id="contact">
       <p class="section__text__p1">Get in Touch</p>
       <h1 class="title">Contact Me</h1>
-      <div class="contact-info-upper-container">
-        <div class="contact-info-container">
-          <img
-            src="./assets/email.png"
-            alt="Email icon"
-            class="icon contact-icon email-icon"
-          />
-          <p><a href="mailto:itsyourriyansh@gmail.com">itsyourriyansh@gmail.com</a></p>
+      <div class="contact-container">
+        <div class="contact-info">
+          <div class="contact-card">
+            <img src="./assets/email.png" alt="Email icon" class="contact-icon" />
+            <h3>Email</h3>
+            <p><a href="mailto:itsyourriyansh@gmail.com">itsyourriyansh@gmail.com</a></p>
+          </div>
+          <div class="contact-card">
+            <img src="./assets/linkedin.png" alt="LinkedIn icon" class="contact-icon" />
+            <h3>LinkedIn</h3>
+            <p><a href="https://www.linkedin.com/in/riyansh-singh-swe/">Connect on LinkedIn</a></p>
+          </div>
+          <div class="contact-card">
+            <img src="./assets/github.png" alt="GitHub icon" class="contact-icon" />
+            <h3>GitHub</h3>
+            <p><a href="https://github.com/RiyanshSingh">Follow on GitHub</a></p>
+          </div>
         </div>
-        <div class="contact-info-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="LinkedIn icon"
-            class="icon contact-icon"
-          />
-          <p><a href="https://www.linkedin.com/in/riyansh-singh-swe/">LinkedIn</a></p>
+        <div class="contact-form-container">
+          <form id="contactForm" class="contact-form">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required placeholder="Your name">
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required placeholder="Your email">
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" required placeholder="Subject of your message">
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required placeholder="Your message here..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-color-1">Send Message</button>
+          </form>
         </div>
       </div>
     </section>
@@ -686,7 +617,6 @@
             <li><a href="#experience">Experience</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
         <div class="footer-section">
