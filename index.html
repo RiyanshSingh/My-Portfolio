@@ -17,7 +17,7 @@
           <li><a href="#experience">Experience</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#" onclick="toggleGame()">Games</a></li>
         </ul>
       </div>
     </nav>
@@ -34,7 +34,7 @@
           <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
           <li><a href="#skills" onclick="toggleMenu()">Skills</a></li>
           <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+          <li><a href="#" onclick="toggleGame(); toggleMenu()">Games</a></li>
         </div>
       </div>
     </nav>
@@ -563,41 +563,26 @@
     </div>
 
     <!-- Game Widget -->
-    <div class="game-widget">
-      <button class="game-toggle" onclick="toggleGame()">
-        <div class="game-icon">
-          <svg class="game-svg" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="4" y="4" width="28" height="28" rx="4" fill="#fff" stroke="#3b82f6" stroke-width="2"/>
-            <line x1="12" y1="12" x2="24" y2="12" stroke="#3b82f6" stroke-width="2"/>
-            <line x1="12" y1="18" x2="24" y2="18" stroke="#3b82f6" stroke-width="2"/>
-            <line x1="12" y1="24" x2="24" y2="24" stroke="#3b82f6" stroke-width="2"/>
-            <line x1="12" y1="12" x2="12" y2="24" stroke="#3b82f6" stroke-width="2"/>
-            <line x1="18" y1="12" x2="18" y2="24" stroke="#3b82f6" stroke-width="2"/>
-            <line x1="24" y1="12" x2="24" y2="24" stroke="#3b82f6" stroke-width="2"/>
-          </svg>
-        </div>
-      </button>
-      <div class="game-container">
-        <div class="game-header">
-          <h3>Tic Tac Toe</h3>
-          <button class="close-game" onclick="toggleGame()">×</button>
-        </div>
-        <div class="game-status">
-          <p id="status">Your turn (X)</p>
-        </div>
-        <div class="game-board" id="board">
-          <div class="cell" data-cell></div>
-          <div class="cell" data-cell></div>
-          <div class="cell" data-cell></div>
-          <div class="cell" data-cell></div>
-          <div class="cell" data-cell></div>
-          <div class="cell" data-cell></div>
-          <div class="cell" data-cell></div>
-          <div class="cell" data-cell></div>
-          <div class="cell" data-cell></div>
-        </div>
-        <button class="restart-btn" onclick="restartGame()">Restart Game</button>
+    <div class="game-container">
+      <div class="game-header">
+        <h3>Tic Tac Toe</h3>
+        <button class="close-game" onclick="toggleGame()">×</button>
       </div>
+      <div class="game-status">
+        <p id="status">Your turn (O)</p>
+      </div>
+      <div class="game-board" id="board">
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+        <div class="cell" data-cell></div>
+      </div>
+      <button class="restart-btn" onclick="restartGame()">Restart Game</button>
     </div>
     <footer>
       <div class="footer-content">

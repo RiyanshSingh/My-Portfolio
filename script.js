@@ -272,7 +272,7 @@ function handleCellClick(e) {
       
       if (checkWin()) {
         gameActive = false;
-        updateStatus(`Bot wins! 🤖`);
+        updateStatus(`Riyansh wins! 🤖`);
         return;
       }
 
