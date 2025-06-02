@@ -17,7 +17,7 @@
           <li><a href="#experience">Experience</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#projects">Projects</a></li>
-          <li><a href="#footer">Contact</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
     </nav>
@@ -34,7 +34,7 @@
           <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
           <li><a href="#skills" onclick="toggleMenu()">Skills</a></li>
           <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-          <li><a href="#footer" onclick="toggleMenu()">Contact</a></li>
+          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
         </div>
       </div>
     </nav>
@@ -53,7 +53,7 @@
           >
             Download CV
           </button>
-          <button class="btn btn-color-1" onclick="location.href='./#footer'">
+          <button class="btn btn-color-1" onclick="location.href='./#contact'">
             Contact Info
           </button>
         </div>
@@ -538,54 +538,33 @@
         </div>
       </div>
     </section>
-    <section id="contact-form">
-      <p class="section__text__p1">Get In Touch</p>
-      <h1 class="title">Contact Me</h1>
-      <div class="contact-form-container">
-        <div class="contact-form-content">
-          <div class="contact-info">
-            <h2>Let's Connect</h2>
-            <p>Feel free to reach out if you're looking for a developer, have a question, or just want to connect.</p>
-            <div class="contact-details">
-              <div class="contact-item">
-                <img src="./assets/email.png" alt="Email icon" class="icon" />
-                <div>
-                  <h3>Email</h3>
-                  <p>itsyourriyansh@gmail.com</p>
-                </div>
-              </div>
-              <div class="contact-item">
-                <img src="./assets/experience.png" alt="Location icon" class="icon" />
-                <div>
-                  <h3>Location</h3>
-                  <p>India</p>
-                </div>
-              </div>
-            </div>
+    <div class="chat-widget">
+      <button class="chat-toggle" onclick="toggleChat()">
+        <div class="robot-icon">
+          <div class="robot-head">
+            <div class="robot-eye left"></div>
+            <div class="robot-eye right"></div>
+            <div class="robot-mouth"></div>
           </div>
-          <form class="contact-form" id="contactForm">
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" id="name" name="name" required placeholder="Your name">
-            </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" required placeholder="Your email">
-            </div>
-            <div class="form-group">
-              <label for="subject">Subject</label>
-              <input type="text" id="subject" name="subject" required placeholder="Subject">
-            </div>
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" required placeholder="Your message" rows="5"></textarea>
-            </div>
-            <button type="submit" class="btn btn-color-1">Send Message</button>
-          </form>
+        </div>
+      </button>
+      <div class="chat-container">
+        <div class="chat-header">
+          <h3>Ask Me Anything</h3>
+          <button class="close-chat" onclick="toggleChat()">×</button>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+          <div class="message bot">
+            <p>Hi! I'm your AI assistant. Ask me anything about Riyansh's experience, skills, or projects!</p>
+          </div>
+        </div>
+        <div class="chat-input">
+          <input type="text" id="userInput" placeholder="Type your question..." onkeypress="handleKeyPress(event)" />
+          <button onclick="sendMessage()">Send</button>
         </div>
       </div>
-    </section>
-    <footer id="footer">
+    </div>
+    <footer>
       <div class="footer-content">
         <div class="footer-section">
           <h3>Quick Links</h3>
