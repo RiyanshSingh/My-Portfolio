@@ -214,3 +214,170 @@ window.addEventListener('resize', () => {
   });
   revealOnScroll();
 });
+
+// Game Widget Functionality
+function toggleGame() {
+  const gameContainer = document.querySelector('.game-container');
+  gameContainer.classList.toggle('active');
+  if (gameContainer.classList.contains('active')) {
+    startGame();
+  }
+}
+
+// Game Logic
+let currentPlayer = 'O';
+let gameBoard = ['', '', '', '', '', '', '', '', ''];
+let gameActive = true;
+
+const winningCombinations = [
+  [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+  [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
+  [0, 4, 8], [2, 4, 6] // Diagonals
+];
+
+function startGame() {
+  const cells = document.querySelectorAll('.cell');
+  cells.forEach(cell => {
+    cell.addEventListener('click', handleCellClick, { once: true });
+  });
+  updateStatus();
+}
+
+function handleCellClick(e) {
+  const cell = e.target;
+  const index = Array.from(cell.parentNode.children).indexOf(cell);
+
+  if (gameBoard[index] !== '' || !gameActive) return;
+
+  // Player's move (O)
+  makeMove(index, 'O');
+  
+  if (checkWin()) {
+    gameActive = false;
+    updateStatus(`You won! 🎉`);
+    return;
+  }
+
+  if (checkDraw()) {
+    gameActive = false;
+    updateStatus(`It's a draw! 🤝`);
+    return;
+  }
+
+  // Bot's move (X)
+  setTimeout(() => {
+    if (gameActive) {
+      const botMove = getBotMove();
+      makeMove(botMove, 'X');
+      
+      if (checkWin()) {
+        gameActive = false;
+        updateStatus(`Bot wins! 🤖`);
+        return;
+      }
+
+      if (checkDraw()) {
+        gameActive = false;
+        updateStatus(`It's a draw! 🤝`);
+        return;
+      }
+    }
+  }, 500);
+}
+
+function makeMove(index, player) {
+  gameBoard[index] = player;
+  const cell = document.querySelectorAll('.cell')[index];
+  cell.textContent = player;
+  cell.classList.add(player.toLowerCase());
+  currentPlayer = player === 'X' ? 'O' : 'X';
+  updateStatus();
+}
+
+function getBotMove() {
+  const availableMoves = gameBoard.map((cell, index) => cell === '' ? index : null).filter(cell => cell !== null);
+  
+  // Check for winning move (X)
+  for (let move of availableMoves) {
+    gameBoard[move] = 'X';
+    if (checkWin()) {
+      gameBoard[move] = '';
+      return move;
+    }
+    gameBoard[move] = '';
+  }
+  
+  // Check for blocking move (O)
+  for (let move of availableMoves) {
+    gameBoard[move] = 'O';
+    if (checkWin()) {
+      gameBoard[move] = '';
+      return move;
+    }
+    gameBoard[move] = '';
+  }
+
+  // Take center if available
+  if (gameBoard[4] === '') return 4;
+
+  // Take opposite corner if player has a corner
+  const corners = [0, 2, 6, 8];
+  const oppositeCorners = {
+    0: 8,
+    2: 6,
+    6: 2,
+    8: 0
+  };
+  
+  for (let corner of corners) {
+    if (gameBoard[corner] === 'O' && gameBoard[oppositeCorners[corner]] === '') {
+      return oppositeCorners[corner];
+    }
+  }
+
+  // Take a corner
+  const availableCorners = corners.filter(corner => gameBoard[corner] === '');
+  if (availableCorners.length > 0) {
+    return availableCorners[Math.floor(Math.random() * availableCorners.length)];
+  }
+
+  // Take a side
+  const sides = [1, 3, 5, 7];
+  const availableSides = sides.filter(side => gameBoard[side] === '');
+  if (availableSides.length > 0) {
+    return availableSides[Math.floor(Math.random() * availableSides.length)];
+  }
+
+  // Take any available move
+  return availableMoves[Math.floor(Math.random() * availableMoves.length)];
+}
+
+function checkWin() {
+  return winningCombinations.some(combination => {
+    const [a, b, c] = combination;
+    return gameBoard[a] !== '' && 
+           gameBoard[a] === gameBoard[b] && 
+           gameBoard[a] === gameBoard[c];
+  });
+}
+
+function checkDraw() {
+  return gameBoard.every(cell => cell !== '');
+}
+
+function updateStatus(message) {
+  const status = document.getElementById('status');
+  status.textContent = message || `Your turn (${currentPlayer})`;
+}
+
+function restartGame() {
+  gameBoard = ['', '', '', '', '', '', '', '', ''];
+  gameActive = true;
+  currentPlayer = 'O';
+  document.querySelectorAll('.cell').forEach(cell => {
+    cell.textContent = '';
+    cell.classList.remove('x', 'o');
+    cell.addEventListener('click', handleCellClick, { once: true });
+  });
+  updateStatus();
+}
