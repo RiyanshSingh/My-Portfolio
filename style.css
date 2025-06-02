@@ -289,8 +289,42 @@ section {
 
 .arrow {
   position: absolute;
-  right: -5rem;
-  bottom: 2.5rem;
+  right: 2rem;
+  bottom: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  z-index: 10;
+}
+
+.arrow:hover {
+  transform: translateY(5px);
+}
+
+/* Section specific arrow positions */
+#about .arrow {
+  bottom: 2rem;
+}
+
+#experience .arrow {
+  bottom: 2rem;
+}
+
+#skills .arrow {
+  bottom: 2rem;
+}
+
+#achievements .arrow {
+  bottom: 2rem;
+}
+
+#moments .arrow {
+  bottom: 2rem;
+}
+
+#projects .arrow {
+  bottom: 2rem;
 }
 
 .details-container {
@@ -431,7 +465,7 @@ article .icon {
 /* MOMENTS SECTION */
 #moments {
   position: relative;
-  background: #f8fafc;
+  background: white;
   margin: 2rem 0;
   padding: 2rem 0;
 }
@@ -456,6 +490,7 @@ article .icon {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   aspect-ratio: 1;
   cursor: pointer;
+  background: white;
 }
 
 .moment-img {
@@ -1238,5 +1273,15 @@ footer {
     height: 60vh;
     bottom: 5rem;
     right: 1rem;
+  }
+}
+
+/* Media Queries for Arrows */
+@media screen and (max-width: 768px) {
+  .arrow {
+    right: 1rem;
+    bottom: 1rem;
+    width: 2rem;
+    height: 2rem;
   }
 }
