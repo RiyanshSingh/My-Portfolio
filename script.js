@@ -9,83 +9,93 @@ function toggleMenu() {
 const tabBtns = document.querySelectorAll('.tab-btn');
 const forms = document.querySelectorAll('.form');
 
-tabBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    // Remove active class from all buttons and forms
-    tabBtns.forEach(b => b.classList.remove('active'));
-    forms.forEach(f => f.classList.remove('active'));
-    
-    // Add active class to clicked button and corresponding form
-    btn.classList.add('active');
-    document.getElementById(`${btn.dataset.tab}Form`).classList.add('active');
+if (tabBtns.length > 0) {
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Remove active class from all buttons and forms
+      tabBtns.forEach(b => b.classList.remove('active'));
+      forms.forEach(f => f.classList.remove('active'));
+      
+      // Add active class to clicked button and corresponding form
+      btn.classList.add('active');
+      const formId = `${btn.dataset.tab}Form`;
+      const form = document.getElementById(formId);
+      if (form) {
+        form.classList.add('active');
+      }
+    });
   });
-});
+}
 
 // Form Submission
 const contactForm = document.getElementById('contactForm');
 const feedbackForm = document.getElementById('feedbackForm');
 
-contactForm.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  
-  const formData = {
-    name: document.getElementById('name').value,
-    email: document.getElementById('email').value,
-    subject: document.getElementById('subject').value,
-    message: document.getElementById('message').value
-  };
+if (contactForm) {
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const formData = {
+      name: document.getElementById('name')?.value || '',
+      email: document.getElementById('email')?.value || '',
+      subject: document.getElementById('subject')?.value || '',
+      message: document.getElementById('message')?.value || ''
+    };
 
-  try {
-    const response = await fetch('https://formspree.io/f/xrbkgbwg', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(formData)
-    });
+    try {
+      const response = await fetch('https://formspree.io/f/xrbkgbwg', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
 
-    if (response.ok) {
-      alert('Message sent successfully!');
-      contactForm.reset();
-    } else {
-      throw new Error('Failed to send message');
+      if (response.ok) {
+        alert('Message sent successfully!');
+        contactForm.reset();
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      alert('Failed to send message. Please try again later.');
+      console.error('Error:', error);
     }
-  } catch (error) {
-    alert('Failed to send message. Please try again later.');
-    console.error('Error:', error);
-  }
-});
+  });
+}
 
-feedbackForm.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  
-  const formData = {
-    name: document.getElementById('feedbackName').value,
-    email: document.getElementById('feedbackEmail').value,
-    type: document.getElementById('feedbackType').value,
-    message: document.getElementById('feedbackMessage').value
-  };
+if (feedbackForm) {
+  feedbackForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const formData = {
+      name: document.getElementById('feedbackName')?.value || '',
+      email: document.getElementById('feedbackEmail')?.value || '',
+      type: document.getElementById('feedbackType')?.value || '',
+      message: document.getElementById('feedbackMessage')?.value || ''
+    };
 
-  try {
-    const response = await fetch('https://formspree.io/f/your-form-id', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(formData)
-    });
+    try {
+      const response = await fetch('https://formspree.io/f/your-form-id', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
 
-    if (response.ok) {
-      alert('Feedback submitted successfully!');
-      feedbackForm.reset();
-    } else {
-      throw new Error('Failed to submit feedback');
+      if (response.ok) {
+        alert('Feedback submitted successfully!');
+        feedbackForm.reset();
+      } else {
+        throw new Error('Failed to submit feedback');
+      }
+    } catch (error) {
+      alert('Failed to submit feedback. Please try again later.');
+      console.error('Error:', error);
     }
-  } catch (error) {
-    alert('Failed to submit feedback. Please try again later.');
-    console.error('Error:', error);
-  }
-});
+  });
+}
 
 // Chatbot functionality
 function toggleChat() {
