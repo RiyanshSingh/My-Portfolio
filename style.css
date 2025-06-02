@@ -13,6 +13,8 @@ body {
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+  font-size: 16px;
 }
 
 p {
@@ -150,10 +152,10 @@ a:hover {
 
 section {
   padding-top: 4vh;
-  height: 96vh;
-  margin: 0 10rem;
+  height: auto;
+  min-height: 96vh;
+  margin: 0 5rem;
   box-sizing: border-box;
-  min-height: fit-content;
 }
 
 .section-container {
@@ -166,7 +168,9 @@ section {
   display: flex;
   justify-content: center;
   gap: 5rem;
-  height: 80vh;
+  height: auto;
+  min-height: 80vh;
+  padding: 2rem 0;
 }
 
 .section__pic-container {
@@ -1285,5 +1289,459 @@ footer {
     bottom: 1rem;
     width: 2rem;
     height: 2rem;
+  }
+}
+
+/* Responsive typography */
+@media screen and (max-width: 1200px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+/* Responsive sections */
+section {
+  padding-top: 4vh;
+  height: auto;
+  min-height: 96vh;
+  margin: 0 5rem;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 1200px) {
+  section {
+    margin: 0 3rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  section {
+    margin: 0 1.5rem;
+    padding-top: 2vh;
+  }
+}
+
+/* Profile section responsiveness */
+#profile {
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+  height: auto;
+  min-height: 80vh;
+  padding: 2rem 0;
+}
+
+@media screen and (max-width: 1200px) {
+  #profile {
+    gap: 3rem;
+  }
+  
+  .section__pic-container {
+    height: 350px;
+    width: 350px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #profile {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+  
+  .section__pic-container {
+    height: 300px;
+    width: 300px;
+    margin: 0 auto;
+  }
+  
+  .section__text {
+    padding: 0 1rem;
+  }
+}
+
+/* Navigation responsiveness */
+@media screen and (max-width: 1200px) {
+  .nav-links {
+    gap: 1.5rem;
+    font-size: 1.2rem;
+  }
+  
+  .logo {
+    font-size: 1.75rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #desktop-nav {
+    display: none;
+  }
+  
+  #hamburger-nav {
+    display: flex;
+  }
+  
+  .nav-links {
+    font-size: 1.1rem;
+  }
+}
+
+/* Experience section responsiveness */
+.experience-details-container {
+  padding: 1rem;
+}
+
+.article-container {
+  gap: 2rem;
+}
+
+@media screen and (max-width: 1200px) {
+  .article-container {
+    gap: 1.5rem;
+  }
+  
+  article {
+    width: 8rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .article-container {
+    gap: 1rem;
+    justify-content: center;
+  }
+  
+  article {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+/* Projects section responsiveness */
+.details-container {
+  padding: 1.5rem;
+}
+
+@media screen and (max-width: 1200px) {
+  .about-containers {
+    gap: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .about-containers {
+    flex-direction: column;
+  }
+  
+  .details-container {
+    width: 100%;
+  }
+  
+  .project-img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* Skills section responsiveness */
+.skills-grid {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .skill-card {
+    padding: 1.25rem;
+  }
+}
+
+/* Achievements section responsiveness */
+.achievements-container {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .achievement-card {
+    padding: 1.5rem;
+  }
+  
+  .achievement-icon {
+    padding: 0.75rem;
+  }
+}
+
+/* Moments section responsiveness */
+.moments-grid {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .moments-container {
+    padding: 1rem;
+  }
+  
+  .moment-overlay {
+    padding: 1.5rem 1rem 1rem;
+  }
+  
+  .moment-overlay h3 {
+    font-size: 1.1rem;
+  }
+}
+
+/* Footer responsiveness */
+.footer-content {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+@media screen and (max-width: 768px) {
+  footer {
+    padding: 2rem 1rem 1rem;
+  }
+  
+  .footer-section {
+    text-align: center;
+  }
+  
+  .footer-section .nav-links {
+    align-items: center;
+  }
+  
+  .footer-contact {
+    align-items: center;
+  }
+}
+
+/* Chat widget responsiveness */
+@media screen and (max-width: 768px) {
+  .chat-widget {
+    bottom: 1rem;
+    right: 1rem;
+  }
+  
+  .chat-toggle {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .robot-icon {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .chat-container {
+    width: calc(100% - 2rem);
+    height: 70vh;
+    bottom: 4rem;
+    right: 1rem;
+  }
+}
+
+/* Form responsiveness */
+@media screen and (max-width: 768px) {
+  .form-tabs {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .tab-btn {
+    width: 100%;
+  }
+  
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    font-size: 16px; /* Prevents zoom on mobile */
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+  .btn:hover,
+  .details-container:hover,
+  .skill-card:hover,
+  .achievement-card:hover,
+  .moment-card:hover {
+    transform: none;
+  }
+  
+  .moment-overlay {
+    transform: translateY(0);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.4));
+  }
+}
+
+/* High-DPI screen optimizations */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .icon,
+  .project-img,
+  .moment-img {
+    image-rendering: -webkit-optimize-contrast;
+  }
+}
+
+/* Footer positioning and styling */
+#footer {
+  scroll-margin-top: 80px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Contact Form Section */
+#contact-form {
+  background-color: var(--background-light);
+  padding: 4rem 0;
+}
+
+.contact-form-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.contact-form-content {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.contact-info {
+  padding-right: 2rem;
+}
+
+.contact-info h2 {
+  color: var(--primary-color);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.contact-info p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.contact-item .icon {
+  width: 2rem;
+  height: 2rem;
+  margin-top: 0.25rem;
+}
+
+.contact-item h3 {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  margin-bottom: 0.25rem;
+}
+
+.contact-item p {
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.contact-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  color: var(--primary-color);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  color: var(--text-primary);
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-form button[type="submit"] {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.1rem;
+}
+
+/* Responsive styles for contact form */
+@media screen and (max-width: 1024px) {
+  .contact-form-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .contact-info {
+    padding-right: 0;
+    text-align: center;
+  }
+
+  .contact-details {
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .contact-form-container {
+    padding: 0 1rem;
+  }
+
+  .contact-form {
+    padding: 1.5rem;
+  }
+
+  .contact-info h2 {
+    font-size: 1.75rem;
+  }
+
+  .contact-info p {
+    font-size: 1rem;
   }
 }
