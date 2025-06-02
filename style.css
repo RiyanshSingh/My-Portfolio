@@ -386,7 +386,9 @@ article .icon {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  height: 70vh;
+  align-items: center;
+  padding: 2rem 0;
+  background: #f8fafc;
 }
 
 .contact-info-upper-container {
@@ -395,9 +397,11 @@ article .icon {
   border-radius: 2rem;
   border: rgb(53, 53, 53) 0.1rem solid;
   border-color: rgb(163, 163, 163);
-  background: (250, 250, 250);
+  background: white;
   margin: 2rem auto;
-  padding: 0.5rem;
+  padding: 1rem;
+  max-width: 800px;
+  width: 90%;
 }
 
 .contact-info-container {
@@ -406,10 +410,12 @@ article .icon {
   justify-content: center;
   gap: 0.5rem;
   margin: 1rem;
+  flex-wrap: wrap;
 }
 
 .contact-info-container p {
   font-size: larger;
+  margin: 0;
 }
 
 .contact-icon {
@@ -779,12 +785,13 @@ footer {
 #feedback {
   position: relative;
   background: #f8fafc;
+  padding: 2rem 0;
 }
 
 .feedback-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0 1rem;
 }
 
 .feedback-content {
@@ -854,29 +861,7 @@ footer {
   border-radius: 1rem;
   padding: 2rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-}
-
-.google-form {
-  border-radius: 0.5rem;
-  overflow: hidden;
-}
-
-/* Media Queries for Feedback Section */
-@media screen and (max-width: 1024px) {
-  .feedback-content {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-
-  .feedback-text {
-    padding-right: 0;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .feedback-features {
-    grid-template-columns: 1fr;
-  }
+  width: 100%;
 }
 
 /* Form Styles */
@@ -958,6 +943,75 @@ footer {
 .form button[type="submit"] {
   width: 100%;
   margin-top: 1rem;
+}
+
+/* Media Queries for Feedback and Contact Sections */
+@media screen and (max-width: 1024px) {
+  .feedback-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 0 1rem;
+  }
+
+  .feedback-text {
+    padding-right: 0;
+    text-align: center;
+  }
+
+  .feedback-features {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .feedback-container {
+    padding: 0 1rem;
+  }
+
+  .feedback-content {
+    gap: 2rem;
+  }
+
+  .feedback-features {
+    grid-template-columns: 1fr;
+  }
+
+  .form-container {
+    padding: 1.5rem;
+  }
+
+  .contact-info-upper-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .contact-info-container {
+    margin: 0.5rem;
+  }
+
+  .contact-info-container p {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .feedback-text h2 {
+    font-size: 1.5rem;
+  }
+
+  .feedback-text p {
+    font-size: 1rem;
+  }
+
+  .form-container {
+    padding: 1rem;
+  }
+
+  .contact-info-container {
+    flex-direction: column;
+    text-align: center;
+  }
 }
 
 /* CHATBOT STYLES */
