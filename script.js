@@ -187,10 +187,14 @@ const revealOnScroll = function() {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('active');
+      } else {
+        // Remove the active class when element is out of view
+        entry.target.classList.remove('active');
       }
     });
   }, {
-    threshold: 0.15
+    threshold: 0.1, // Trigger when 10% of the element is visible
+    rootMargin: '0px 0px -50px 0px' // Trigger slightly before the element comes into view
   });
 
   revealElements.forEach(element => {
@@ -201,4 +205,178 @@ const revealOnScroll = function() {
 // Initialize scroll animations when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
   revealOnScroll();
+  
+  // Re-initialize on window resize to handle responsive changes
+  window.addEventListener('resize', () => {
+    revealElements.forEach(element => {
+      element.classList.remove('active');
+    });
+    revealOnScroll();
+  });
 });
+
+// Tic Tac Toe Game
+const gameBoard = document.getElementById('board');
+const cells = document.querySelectorAll('[data-cell]');
+const status = document.getElementById('status');
+const restartButton = document.getElementById('restartButton');
+let currentPlayer = 'X'; // X is human, O is AI
+let gameActive = true;
+let gameState = ['', '', '', '', '', '', '', '', ''];
+
+const winningCombinations = [
+  [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+  [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
+  [0, 4, 8], [2, 4, 6] // Diagonals
+];
+
+function handleCellClick(e) {
+  const cell = e.target;
+  const cellIndex = Array.from(cells).indexOf(cell);
+
+  if (gameState[cellIndex] !== '' || !gameActive || currentPlayer === 'O') return;
+
+  makeMove(cellIndex);
+  
+  if (gameActive) {
+    setTimeout(() => {
+      makeAIMove();
+    }, 500);
+  }
+}
+
+function makeMove(cellIndex) {
+  gameState[cellIndex] = currentPlayer;
+  cells[cellIndex].textContent = currentPlayer;
+  cells[cellIndex].classList.add(currentPlayer.toLowerCase());
+
+  if (checkWin()) {
+    gameActive = false;
+    status.textContent = currentPlayer === 'X' ? "You won! 🎉" : "Riyansh won! 🤖";
+    highlightWinningCells();
+    return;
+  }
+
+  if (checkDraw()) {
+    gameActive = false;
+    status.textContent = "It's a draw! 🤝";
+    return;
+  }
+
+  currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+  status.textContent = currentPlayer === 'X' ? "Your turn" : "Riyansh's turn...";
+}
+
+function makeAIMove() {
+  if (!gameActive) return;
+  
+  // Use minimax to find the best move
+  const bestMove = findBestMove();
+  makeMove(bestMove);
+}
+
+function findBestMove() {
+  let bestScore = -Infinity;
+  let bestMove = -1;
+  
+  // Try each empty cell
+  for (let i = 0; i < gameState.length; i++) {
+    if (gameState[i] === '') {
+      gameState[i] = 'O';
+      const score = minimax(gameState, 0, false);
+      gameState[i] = '';
+      
+      if (score > bestScore) {
+        bestScore = score;
+        bestMove = i;
+      }
+    }
+  }
+  
+  return bestMove;
+}
+
+function minimax(board, depth, isMaximizing) {
+  // Check terminal states
+  if (checkWinner('O')) return 10 - depth;
+  if (checkWinner('X')) return depth - 10;
+  if (isBoardFull()) return 0;
+  
+  if (isMaximizing) {
+    let bestScore = -Infinity;
+    for (let i = 0; i < board.length; i++) {
+      if (board[i] === '') {
+        board[i] = 'O';
+        const score = minimax(board, depth + 1, false);
+        board[i] = '';
+        bestScore = Math.max(score, bestScore);
+      }
+    }
+    return bestScore;
+  } else {
+    let bestScore = Infinity;
+    for (let i = 0; i < board.length; i++) {
+      if (board[i] === '') {
+        board[i] = 'X';
+        const score = minimax(board, depth + 1, true);
+        board[i] = '';
+        bestScore = Math.min(score, bestScore);
+      }
+    }
+    return bestScore;
+  }
+}
+
+function checkWinner(player) {
+  return winningCombinations.some(combination => {
+    return combination.every(index => {
+      return gameState[index] === player;
+    });
+  });
+}
+
+function isBoardFull() {
+  return gameState.every(cell => cell !== '');
+}
+
+function checkWin() {
+  return winningCombinations.some(combination => {
+    return combination.every(index => {
+      return gameState[index] === currentPlayer;
+    });
+  });
+}
+
+function checkDraw() {
+  return gameState.every(cell => cell !== '');
+}
+
+function highlightWinningCells() {
+  winningCombinations.forEach(combination => {
+    if (combination.every(index => gameState[index] === currentPlayer)) {
+      combination.forEach(index => {
+        cells[index].classList.add('winning');
+      });
+    }
+  });
+}
+
+function restartGame() {
+  currentPlayer = 'X';
+  gameActive = true;
+  gameState = ['', '', '', '', '', '', '', '', ''];
+  status.textContent = "Your turn";
+  cells.forEach(cell => {
+    cell.textContent = '';
+    cell.classList.remove('x', 'o', 'winning');
+  });
+}
+
+// Initialize game
+if (gameBoard) {
+  cells.forEach(cell => {
+    cell.addEventListener('click', handleCellClick);
+  });
+
+  restartButton.addEventListener('click', restartGame);
+}
