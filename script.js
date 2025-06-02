@@ -187,14 +187,10 @@ const revealOnScroll = function() {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('active');
-      } else {
-        // Remove the active class when element is out of view
-        entry.target.classList.remove('active');
       }
     });
   }, {
-    threshold: 0.1, // Trigger when 10% of the element is visible
-    rootMargin: '0px 0px -50px 0px' // Trigger slightly before the element comes into view
+    threshold: 0.15
   });
 
   revealElements.forEach(element => {
@@ -204,13 +200,5 @@ const revealOnScroll = function() {
 
 // Initialize scroll animations when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-  revealOnScroll();
-});
-
-// Re-initialize on window resize to handle dynamic content
-window.addEventListener('resize', () => {
-  revealElements.forEach(element => {
-    element.classList.remove('active');
-  });
   revealOnScroll();
 });
