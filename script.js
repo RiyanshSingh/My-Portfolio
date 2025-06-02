@@ -178,3 +178,39 @@ function getBotResponse(message) {
   // Default response
   return "I'm not sure about that. You can ask me about Riyansh's experience, skills, education, projects, or contact information.";
 }
+
+// Scroll Animation
+const revealElements = document.querySelectorAll('.reveal');
+
+const revealOnScroll = function() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      } else {
+        // Remove the active class when element is out of view
+        entry.target.classList.remove('active');
+      }
+    });
+  }, {
+    threshold: 0.1, // Trigger when 10% of the element is visible
+    rootMargin: '0px 0px -50px 0px' // Trigger slightly before the element comes into view
+  });
+
+  revealElements.forEach(element => {
+    observer.observe(element);
+  });
+};
+
+// Initialize scroll animations when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  revealOnScroll();
+});
+
+// Re-initialize on window resize to handle dynamic content
+window.addEventListener('resize', () => {
+  revealElements.forEach(element => {
+    element.classList.remove('active');
+  });
+  revealOnScroll();
+});
